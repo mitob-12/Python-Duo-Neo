@@ -1240,7 +1240,7 @@
 <script>
 // ==================== КОНФИГУРАЦИЯ API ====================
 // TODO: Замени на URL своего сервера
-const API_BASE_URL = 'https://your-server.com/api';
+const API_BASE_URL = '';
 
 // TODO: Замени на ключи твоей платежной системы (ЮKassa, Stripe, etc.)
 const PAYMENT_CONFIG = {
@@ -1649,9 +1649,9 @@ function switchAuth(mode) {
   document.getElementById('field-nick').style.display = mode === 'register' ? 'block' : 'none';
   document.getElementById('auth-submit').textContent = mode === 'login' ? 'Войти в систему' : 'Создать аккаунт';
   document.getElementById('auth-err').textContent = '';
-}
-
 async function submitAuth() {
+  return; // <--- ДОБАВЬ ЭТУ СТРОКУ
+  const nick = document.getElementById('auth-nick').value.trim();
   const nick = document.getElementById('auth-nick').value.trim();
   const email = document.getElementById('auth-email').value.trim().toLowerCase();
   const pass = document.getElementById('auth-pass').value;
